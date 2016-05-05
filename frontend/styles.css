@@ -1,0 +1,47 @@
+#loginPage { 
+	 background: url('http://mobo.co.uk/wp-content/uploads/2014/11/Website-Design-Background.png') no-repeat center center fixed; 
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+}
+
+#mainPage{ 
+	 background: url('https://djjvc.files.wordpress.com/2013/11/background-gr4.jpg') no-repeat center center fixed; 
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+}
+
+#profilePage { 
+	 background: url('https://djjvc.files.wordpress.com/2013/11/background-gr4.jpg') no-repeat center center fixed; 
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+}
+.postImg{
+	height: 50%;
+    width: 50%;
+}
+.well{
+    opacity: 0.9;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+    opacity: 0.9;
+}
+
+.reg_err_msg {
+	color: orange;
+}
+
+.profileImg {
+    height: 80px;
+    width: 80px;
+    background-color: #fff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+}

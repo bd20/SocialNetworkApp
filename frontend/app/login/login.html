@@ -1,0 +1,80 @@
+<div id="loginPage">
+<nav class="navbar navbar-default navbar-fixed-top" id="indexNav">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav">
+        <li><a class="navbar-brand" id="toLogin" href="#/login">DBC.Inc</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br/><br/><br/>
+
+<div class="modal-body">
+    <div class="row">
+    <div class="col-xs-4 col-md-offset-2">
+      <div class="well">
+        <label id="prifileName"><font size="5">Register Now</font></label><br/>
+        <form>
+
+          <div class="form-group">
+            <label for="accname" class="control-label">Account Name</label>
+                  <input class="form-control" type="text" ng-model="vm.regname" placeholder="Account Name">
+                </div>  
+
+                <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" ng-model="vm.email" id="email" placeholder="Email address" ng-blur="vm.checkEmail(vm)" ng-keyup="vm.checkEmail(vm)" ng-focus="vm.checkEmail(vm)">
+            <span class="reg_err_msg" ng-show="vm.emailErr">{{vm.emailErrMessage}}</span>
+          </div>
+
+          <div class="form-group">
+            <label for="birth">Date of Birth</label>
+            <input type="date" class="form-control" type="text">
+          </div>
+
+          <div class="form-group">
+            <label for="zipcode">Zip Code</label>
+            <input type="text" class="form-control" ng-model="vm.zipcode" id="zipcode" placeholder="Zipcode" ng-blur="vm.checkZipcode(vm)" ng-keyup="vm.checkZipcode(vm)" ng-focus="vm.checkZipcode(vm)">
+            <span class="reg_err_msg" ng-show="vm.zipcodeErr">{{vm.zipcodeErrMessage}}</span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" ng-model="vm.password" id="password" placeholder="password" ng-blur="vm.checkPassword(vm)" ng-keyup="vm.checkPassword(vm)" ng-focus="vm.checkPassword(vm)">
+            <span class="reg_err_msg" ng-show="vm.passwordErr">{{vm.passwordErrMessage}}</span>
+            <label for="password">Confirm Password</label>
+            <input type="Password" class="form-control" name="password" id="confirm-password" placeholder="Confirm password" ng-model="vm.cpassword" ng-blur="vm.checkConfPassword(vm)" ng-keyup="vm.checkConfPassword(vm)" ng-focus="vm.checkConfPassword(vm)">
+            <span class="reg_err_msg" ng-show="vm.cpasswordErr">{{vm.cpasswordErrMessage}}</span>
+          </div>
+          
+          <input type="submit" class="btn btn-default" ng-click="vm.register()" value="Register">
+          <input class="btn btn-default" type="reset" value="Clear" class="btn btn-default">
+        </form>
+
+      </div>
+    </div>
+
+    <div class="col-xs-4">
+        <div class="well">
+          <label id="prifileName"><font size="5">Login</font></label><br/>
+        <div class="form-group">
+        <label for="username" class="control-label">Username</label>
+        <input class="form-control" type="text" id="loginName" ng-model="vm.loginUsername">
+        <span ng-show="vm.notValid">Invalid Blank Username</span>
+        </div>
+        <div class="form-group">
+            <label for="password" class="control-label">Password</label>
+            <input class="form-control" type="password" id="loginPwd" ng-model="vm.loginPassword">
+        </div>
+        <button type="button" id="login" class="btn btn-default"
+				ng-click="vm.login()">Log In</button>
+        <button type="button" id="login" class="btn btn-default"
+        onclick="location.href='https://bd20-inclassbe.herokuapp.com/auth/facebook'">Log In via Facebook</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

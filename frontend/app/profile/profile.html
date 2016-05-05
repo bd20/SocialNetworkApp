@@ -1,0 +1,99 @@
+<div id="profilePage">
+
+<div ng-controller="ProfileController as profileCtrl">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">DBC.Inc</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#/main">Main Page</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!--Profile Col-->
+<br/><br/><br/>
+<div class="col-sm-4">
+  <div class="well">
+    <img class="profileImg" ng-src="{{profileCtrl.avatar}}"> 
+    <br/>
+    <label>Upload Profile</label>
+    <input type="file" accept="image/*" onchange="angular.element(this).scope().profileCtrl.uploadFile(this)" >
+
+
+  </div>
+</div>
+<!--End Profile Col-->
+
+<!--Cur Info Col-->
+<div id="current_info" class="col-sm-4">
+  <div class="well">
+    <ul class="list-group">
+    <h3> Current Info </h3>
+    <li class="list-group-item" id="displayName">{{profileCtrl.userName}}</li>
+    <li class="list-group-item" id="emailAddress"><i class="fa fa-envelope"></i>{{profileCtrl.email}}</li>
+    <li class="list-group-item" id="zipCode">{{profileCtrl.zipcode}}</li>
+    </ul>
+
+
+    <div class="form-group">
+    <label>Account Linking</label>
+    <br/>
+    <button type="button" class="btn btn-default" ng-class="profileCtrl.linkClass" ng-click="profileCtrl.authLink()">Link Facebook</button>
+    <button type="button" class="btn btn-default" ng-class="profileCtrl.linkClass" ng-click="profileCtrl.authUnLink()">Unlink Facebook</button>
+    </div>
+
+    <div class="form-group">
+    <label>Link Local</label>
+    <br/>
+    <input type="text" class="form-control" id="userName"  placeholder="User Name" ng-model="profileCtrl.linkUsername">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="profileCtrl.linkPassword">
+    <button type="button" class="btn btn-default" ng-click="profileCtrl.linkLocal()" ng-disabled="profileCtrl.linkLocalDisable">Link Local User</button>
+    </div>
+
+  </div>
+</div>
+<!--End Cur Info Col-->
+
+<!--Update Info Col-->
+<div id="update_info" class="col-sm-4">
+<div class="well">
+
+<h3> Update Info </h3>
+
+	<div class="form-group">
+	<label for="email">Email Address</label>
+	<input type="text" class="form-control" ng-model="profileCtrl.email" id="email" placeholder="Your email" ng-blur="profileCtrl.checkEmail(profileCtrl)" ng-focus="profileCtrl.checkEmail(profileCtrl)">
+	<div class="reg_err_msg" ng-show="profileCtrl.emailErr">{{profileCtrl.emailErrMessage}}</div>
+	<button id="changeEmail_btn" class="btn btn-default" ng-click="profileCtrl.changeEmail()" ng-disabled="profileCtrl.emailErr">Change</button>
+	</div>
+
+	<div class="form-group">
+		<label for="zipcode">Zip Code</label>
+		<input type="text" class="form-control" ng-model="profileCtrl.zipcode" id="zipcode" placeholder="Zipcode" name="zipcode" ng-blur="profileCtrl.checkZipcode(profileCtrl)" ng-keyup="profileCtrl.checkZipcode(profileCtrl)" ng-focus="profileCtrl.checkZipcode(profileCtrl)">
+		<div class="reg_err_msg" ng-show="profileCtrl.zipcodeErr">{{profileCtrl.zipcodeErrMessage}}</div>
+		<button id="changeZipcode_btn" class="btn btn-default" ng-click="profileCtrl.changeZipcode()" ng-disabled="profileCtrl.zipcodeErr">Change</button>
+	</div>
+
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" class="form-control" ng-model="profileCtrl.password" id="password" placeholder="New password" ng-blur="profileCtrl.checkPassword(profileCtrl)" ng-keyup="profileCtrl.checkPassword(profileCtrl)">
+		<div class="reg_err_msg" ng-show="profileCtrl.passwordErr">{{profileCtrl.passwordErrMessage}}</div>
+					
+		<label for="confpassword">Password Confirmation</label>
+		<input type="password" class="form-control" name="password" id="confirm-password" placeholder="Confirm your password" ng-model="profileCtrl.cpassword" ng-blur="profileCtrl.checkCPassword(profileCtrl)" ng-keyup="profileCtrl.checkCPassword(profileCtrl)">
+		<div class="reg_err_msg" ng-show="profileCtrl.cpasswordErr">{{profileCtrl.cpasswordErrMessage}}</div>
+		<button id="changePassword_btn" class="btn btn-default" ng-click="profileCtrl.changePassword()" ng-disabled="profileCtrl.passwordErr || profileCtrl.cpasswordErr">Change</button>
+	</div>
+
+  </div>
+  </div>
+  <!--End Update Info Col-->
+  </div>
+  <!--End Controller-->
+  <div>
+    .
+  </div>
+</div><!--End ProfilePage-->

@@ -1,0 +1,21 @@
+<div>
+<!-- Followings -->
+
+  <div class="well" ng-controller="FollowingController as followingCtrl">
+      <h4> Friends </h4>
+      <div ng-repeat="following in followingCtrl.followings">
+          <div class="follower_content">
+            <img class="profileImg" ng-src="{{following.avatar}}" alt="">
+            <label>{{following.username}}</label><br/>
+            <p>{{following.status}}</p>
+            <input type="button" value="Unfollow" id="unfollow_btn" class="btn btn-default" ng-click="followingCtrl.deleteUser($index)">
+            <br/><br/><br/>
+          </div>
+      </div>
+
+      <input type="text" placeholder = "Add friends to follow here" size="30" ng-model="followingCtrl.newFollower">
+      <input type="button" value="Add" id="add_friend" class="btn btn-default" ng-click="followingCtrl.addUser()">
+      <div id="newFollowerErr" class="help-message-err-login" ng-hide="followingCtrl.newFollowerErrHide">{{followingCtrl.newFollowerMessage}}</div>
+  </div>
+  <!-- End Followings -->
+</div>

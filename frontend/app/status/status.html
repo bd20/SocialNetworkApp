@@ -1,0 +1,15 @@
+<div ng-controller="StatusController as statusCtrl">
+	<div class="well">
+    <div>
+      <img class="profileImg" ng-src="{{statusCtrl.avatar}}" class="user-avatar">
+      <label id="prifileName"><font size="6">{{statusCtrl.userName}}</font></label><br/>
+    </div>
+    <br/>
+    <div>
+      <label>Status:</label>
+      <p id="status">{{statusCtrl.status}}</p>
+      <textarea class="form-control" rows="1" id="post_status" ng-model="statusCtrl.newStatus"></textarea>
+      <input type="button" value="Post" id="postStatus" class="btn btn-default" ng-click="statusCtrl.editStatus()">
+    </div>
+  	</div>
+</div>

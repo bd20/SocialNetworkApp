@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="In class End to End Exercise" timestamp="2016-03-21T16:39:23" hostname="localhost" time="8.676" errors="0" tests="5" skipped="0" disabled="0" failures="0">
+  <testcase classname="In class End to End Exercise" name="Log in as your test user" time="2.167" />
+  <testcase classname="In class End to End Exercise" name="Navigate to the profile view and verify the page is loaded" time="1.334" />
+  <testcase classname="In class End to End Exercise" name="Update the users email and verify" time="1.696" />
+  <testcase classname="In class End to End Exercise" name="Update the users zipcode and verify" time="1.752" />
+  <testcase classname="In class End to End Exercise" name="Update the users password, verify a &quot;will not change&quot; message" time="1.723" />
+ </testsuite>
+</testsuites>

@@ -1,0 +1,26 @@
+<div id="mainPage">
+
+<!--Navifation Bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">DBC.Inc</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#/profile">Profile Page</a></li> 
+      <li id="logout_btn"><a ng-click="vm.logout()" href="#/login"> Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+	<br/><br/><br/>
+	<div class="row">
+		<div class="col-sm-4">
+			<div ng-include="'app/status/status.html'"></div>
+			<div ng-include="'app/following/following.html'"></div>
+		</div>
+		<div class="col-sm-8">
+			<div ng-include="'app/post/post.html'"></div>
+		</div>
+	</div>
+</div>

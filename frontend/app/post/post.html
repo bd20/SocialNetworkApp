@@ -1,0 +1,79 @@
+<div class="main" ng-controller="PostController as postCtrl">
+	
+  <!--New Posts-->
+	<div class="well">
+    <label>Upload Image</label>
+    <input type="file" accept="image/*" onchange="angular.element(this).scope().postCtrl.setFile(this)" >
+    <br/>
+    <div class="form-group">
+      <label>New Posts:</label>
+      <textarea class="form-control" rows="3" id="newPostTitle" ng-model="postCtrl.postContent"></textarea>
+      <input type="button" value="Post" id="postPost" class="btn btn-default" ng-click="postCtrl.addPost()">
+      <input type="reset" value="Cancle" id="clear" class="btn btn-default">
+      </div>
+  </div>
+  <!--End New Posts-->
+
+  <!--Search Box-->
+  <div id="searchBox">
+    <div class="well">
+      <div class="input-group col-md-12">
+        <input id="searchBar" type="search" ng-model="postCtrl.query" placeholder = "search here" size="50" class="form-control input-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-info btn-lg" type="button">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </span>
+      </div>
+    </div>
+  </div>
+  <!--End Search Box-->
+
+  <!--Posts-->
+  <div class="row" ng-repeat="post in postCtrl.posts | compare:postCtrl.query">
+
+  	<div class="well">
+    <div class="feeds">
+        <div>
+        <label class="feed_user_name">Author: {{post.author}} </label>
+        <label> Time: {{post.date | date: 'MM-dd-yyyy'}} {{post.date | date: 'HH:mm:ss'}}</label>
+        </div>
+
+        <img class="postImg" ng-src="{{post.img}}">
+
+        <div class="post_content">{{post.body}}</div>
+        <!--Edit-->
+        <input type="button" ng-show="post.author==postCtrl.userName" class="btn btn-default" ng-click="postCtrl.editPost(post._id,$index);" value="Edit">
+        <textarea class="form-control" rows="1" ng-show="postCtrl.isEdit" ng-model="postCtrl.editPostContent"> </textarea>
+        <!--End Edit-->
+
+        
+    <div class="feed-replies">
+      <br/><br/>
+            <label>Replies:</label>
+            <div class="replies" ng-repeat="comment in post.comments">   
+              <label>{{comment.author}}<br/>{{comment.timestamp}}</label>
+              <div class="replycontainer">
+
+                <div class="text">{{comment.body}}</div>
+
+                <input type="button" ng-if="comment.author==postCtrl.userName" class="btn btn-default" ng-click="postCtrl.editComment(post._id,comment._id,comment.author,$parent.$parent.$index);" value="Edit">
+                <textarea class="form-control" rows="1" ng-show="replyCtrl.isEdit" ng-model="replyCtrl.editReplyContent"> </textarea>
+              </div>
+            </div>
+    </div>
+
+
+      <div ng-init="replyContent=''">
+        <label>My Reply:</label>
+        <textarea class="form-control" rows="1" id="post_reply" ng-model="postCtrl.newComment[$index]"></textarea>
+        <input type="button" class="btn btn-default" ng-click="postCtrl.addComment($index)" value="Reply">
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+    <!--End Posts-->
+</div>
+
